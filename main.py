@@ -53,6 +53,7 @@ def update_categories() -> Union[None, Tuple[int, int]]:
         database_id=os.environ["APPWRITE_DATABASE_ID"],
         collection_id=os.environ["APPWRITE_TRANSACTION_COLLECTION_ID"],
         queries=[
+            Query.order_desc('bookingDate'),
             Query.limit(5000)
         ]
     )
