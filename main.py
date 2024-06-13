@@ -40,7 +40,7 @@ def update_categories() -> Union[None, Tuple[int, int]]:
     """
     client = (
         Client()
-        .set_endpoint("NEXT_PUBLIC_APPWRITE_ENDPOINT")
+        .set_endpoint(os.environ["NEXT_PUBLIC_APPWRITE_ENDPOINT"])
         .set_project(os.environ["NEXT_PUBLIC_APPWRITE_PROJECT"])
         .set_key(os.environ["NEXT_APPWRITE_KEY"])
     )
