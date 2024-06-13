@@ -40,9 +40,9 @@ def update_categories() -> Union[None, Tuple[int, int]]:
     """
     client = (
         Client()
-        .set_endpoint("https://cloud.appwrite.io/v1")
-        .set_project(os.environ["APPWRITE_FUNCTION_PROJECT_ID"])
-        .set_key(os.environ["APPWRITE_API_KEY"])
+        .set_endpoint("NEXT_PUBLIC_APPWRITE_ENDPOINT")
+        .set_project(os.environ["NEXT_PUBLIC_APPWRITE_PROJECT"])
+        .set_key(os.environ["NEXT_APPWRITE_KEY"])
     )
 
     databases = Databases(client)
