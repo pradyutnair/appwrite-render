@@ -1,5 +1,6 @@
 from typing import Union, Tuple
 from appwrite.client import Client
+from appwrite.query import Query
 from appwrite.services.databases import Databases
 import os
 import joblib
@@ -50,10 +51,15 @@ def update_categories() -> Union[None, Tuple[int, int]]:
     # List documents in the collection
     result = databases.list_documents(
         database_id=os.environ["APPWRITE_DATABASE_ID"],
-        collection_id=os.environ["APPWRITE_TRANSACTION_COLLECTION_ID"]
+        collection_id=os.environ["APPWRITE_TRANSACTION_COLLECTION_ID"],
+        queries=[
+            Query.limit(5000)
+        ]
     )
 
     if result:
+        print("Fetched transactions")
+
         documents = result['documents']
         total = int(result['total'])
 
