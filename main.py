@@ -99,7 +99,7 @@ def root():
 
 
 class PayeeRequest(BaseModel):
-    payee: str
+    Payee: str
 
 
 @app.post("/predict")
